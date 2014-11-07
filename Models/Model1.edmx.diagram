@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2e0b5b2421bb42219107055cb8ceccde" Name="Diagram1">
+        <EntityTypeShape EntityType="FFCubeModel.DimBucket" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FFCubeModel.DimBuilding" Width="1.5" PointX="7.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FFCubeModel.DimBusinessPartner" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FFCubeModel.DimBusinessUnit" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FFCubeModel.DimCostCenter" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="FFCubeModel.DimCountry" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FFCubeModel.DimFacility" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FFCubeModel.DimFFInstance" Width="1.5" PointX="12" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FFCubeModel.DimFinancialCompany" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FFCubeModel.DimModule" Width="1.5" PointX="9.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FFCubeModel.DimPhysicalStation" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FFCubeModel.DimRegion" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FFCubeModel.DimStationType" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="FFCubeModel.FK_DimBuilding_DimFacility" ManuallyRouted="false" />
+        <AssociationConnector Association="FFCubeModel.FK_DimModule_DimBuilding" ManuallyRouted="false" />
+        <AssociationConnector Association="FFCubeModel.FK_CostCenter" ManuallyRouted="false" />
+        <AssociationConnector Association="FFCubeModel.FK_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="FFCubeModel.FK_Region" ManuallyRouted="false" />
+        <AssociationConnector Association="FFCubeModel.FK_Module" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

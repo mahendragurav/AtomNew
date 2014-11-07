@@ -1,0 +1,40 @@
+﻿@model ATOMv0.Models.DimModule
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="form-crud">
+    <h4>DimModule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ModuleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModuleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DimBuilding.BuildingName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DimBuilding.BuildingName)
+        </dd>
+
+    </dl>
+
+    <div class="form-actions no-color">
+        <input type="button" class="btn btn-info " value="Edit" onclick="location.href='@Url.Action("Edit", new { id = Model.id })'" />
+    </div>
+    <br />
+
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+</div>
+

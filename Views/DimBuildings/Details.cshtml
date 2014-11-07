@@ -1,0 +1,44 @@
+﻿@model ATOMv0.Models.DimBuilding
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="form-crud">
+    <h4>DimBuilding</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BuildingName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuildingName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DimFacility.SiteName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DimFacility.SiteName)
+        </dd>
+
+    </dl>
+
+    <div class="form-actions no-color">
+        <input type="button" class="btn btn-info " value="Edit" onclick="location.href='@Url.Action("Edit", new { id = Model.id })'" />
+    </div>
+    <br />
+    <p>
+        @*@Html.ActionLink("Back to List", "Index")*@
+        <a href="javascript:void(0);" onclick="history.go(-1);">Back to List</a>
+    </p>
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

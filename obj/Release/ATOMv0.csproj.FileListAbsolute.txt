@@ -1,0 +1,11 @@
+D:\PRJ\ATOM-v0\bin\ATOMv0.dll.config
+D:\PRJ\ATOM-v0\bin\ATOMv0.dll
+D:\PRJ\ATOM-v0\bin\ATOMv0.pdb
+D:\PRJ\ATOM-v0\bin\Flextronics.QMSCC.Commons.SystemIntegrations.FlexWare.dll
+D:\PRJ\ATOM-v0\bin\Flextronics.QMSCC.Commons.SystemIntegrations.FlexWare.XmlSerializers.dll
+D:\PRJ\ATOM-v0\bin\Microsoft.Web.Infrastructure.dll
+D:\PRJ\ATOM-v0\bin\Newtonsoft.Json.dll
+D:\PRJ\ATOM-v0\bin\Microsoft.Web.Infrastructure.xml
+D:\PRJ\ATOM-v0\obj\Release\ATOMv0.csprojResolveAssemblyReference.cache
+D:\PRJ\ATOM-v0\obj\Release\ATOMv0.dll
+D:\PRJ\ATOM-v0\obj\Release\ATOMv0.pdb

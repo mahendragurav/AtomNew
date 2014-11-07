@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FFCubeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DimBucket">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BucketName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="KeyProcessType" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DimBuilding">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="KeyFacility" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" />
+    <NavigationProperty Name="DimFacility" Relationship="Self.FK_DimBuilding_DimFacility" FromRole="DimBuilding" ToRole="DimFacility" />
+    <NavigationProperty Name="DimModules" Relationship="Self.FK_DimModule_DimBuilding" FromRole="DimBuilding" ToRole="DimModule" />
+  </EntityType>
+  <EntityType Name="DimBusinessPartner">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BusinessPartnerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="BPCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KeySite" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="KeyBuilding" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DimBusinessUnit">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BusinessUnitName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="KeyCostCenter" Type="Int32" />
+    <NavigationProperty Name="DimCostCenter" Relationship="Self.FK_CostCenter" FromRole="DimBusinessUnit" ToRole="DimCostCenter" />
+  </EntityType>
+  <EntityType Name="DimCostCenter">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CostCenter" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DimBusinessUnits" Relationship="Self.FK_CostCenter" FromRole="DimCostCenter" ToRole="DimBusinessUnit" />
+  </EntityType>
+  <EntityType Name="DimCountry">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="KeyRegion" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" />
+    <NavigationProperty Name="DimFacilities" Relationship="Self.FK_Country" FromRole="DimCountry" ToRole="DimFacility" />
+    <NavigationProperty Name="DimRegion" Relationship="Self.FK_Region" FromRole="DimCountry" ToRole="DimRegion" />
+  </EntityType>
+  <EntityType Name="DimFacility">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SiteName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="KeyCountry" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" />
+    <NavigationProperty Name="DimBuildings" Relationship="Self.FK_DimBuilding_DimFacility" FromRole="DimFacility" ToRole="DimBuilding" />
+    <NavigationProperty Name="DimCountry" Relationship="Self.FK_Country" FromRole="DimFacility" ToRole="DimCountry" />
+  </EntityType>
+  <EntityType Name="DimFFInstance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DataSourceName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HostName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DatabaseName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DataFilePrefix" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ReplicationDelayMinute" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="KeyModule" Type="Int32" />
+    <Property Name="ITContactName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ITPhone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ITEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="QAContactName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="QAPhone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="QAEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SiteName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BaanCoNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DimModule" Relationship="Self.FK_Module" FromRole="DimFFInstance" ToRole="DimModule" />
+  </EntityType>
+  <EntityType Name="DimFinancialCompany">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FinancialCompanyName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DimModule">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModuleName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="KeyBuilding" Type="Int32" />
+    <NavigationProperty Name="DimBuilding" Relationship="Self.FK_DimModule_DimBuilding" FromRole="DimModule" ToRole="DimBuilding" />
+    <NavigationProperty Name="DimFFInstances" Relationship="Self.FK_Module" FromRole="DimModule" ToRole="DimFFInstance" />
+  </EntityType>
+  <EntityType Name="DimPhysicalStation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StationName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="HostAlias" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CPUMegaHertz" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MemorySize" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="KeyStationType" Type="Int32" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FFInstanceID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="LineID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DimRegion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RegionName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DimCountries" Relationship="Self.FK_Region" FromRole="DimRegion" ToRole="DimCountry" />
+  </EntityType>
+  <EntityType Name="DimStationType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StationTypeName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="KeyBucket" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="FFInstanceID" Type="Int32" />
+    <Property Name="Sequence" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_DimBuilding_DimFacility">
+    <End Role="DimFacility" Type="Self.DimFacility" Multiplicity="0..1" />
+    <End Role="DimBuilding" Type="Self.DimBuilding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimFacility">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DimBuilding">
+        <PropertyRef Name="KeyFacility" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DimModule_DimBuilding">
+    <End Role="DimBuilding" Type="Self.DimBuilding" Multiplicity="0..1" />
+    <End Role="DimModule" Type="Self.DimModule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimBuilding">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DimModule">
+        <PropertyRef Name="KeyBuilding" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CostCenter">
+    <End Role="DimCostCenter" Type="Self.DimCostCenter" Multiplicity="0..1" />
+    <End Role="DimBusinessUnit" Type="Self.DimBusinessUnit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimCostCenter">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DimBusinessUnit">
+        <PropertyRef Name="KeyCostCenter" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Country">
+    <End Role="DimCountry" Type="Self.DimCountry" Multiplicity="0..1" />
+    <End Role="DimFacility" Type="Self.DimFacility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimCountry">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DimFacility">
+        <PropertyRef Name="KeyCountry" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Region">
+    <End Role="DimRegion" Type="Self.DimRegion" Multiplicity="0..1" />
+    <End Role="DimCountry" Type="Self.DimCountry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimRegion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DimCountry">
+        <PropertyRef Name="KeyRegion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Module">
+    <End Role="DimModule" Type="Self.DimModule" Multiplicity="0..1" />
+    <End Role="DimFFInstance" Type="Self.DimFFInstance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimModule">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DimFFInstance">
+        <PropertyRef Name="KeyModule" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FFCubeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DimBuckets" EntityType="Self.DimBucket" />
+    <EntitySet Name="DimBuildings" EntityType="Self.DimBuilding" />
+    <EntitySet Name="DimBusinessPartners" EntityType="Self.DimBusinessPartner" />
+    <EntitySet Name="DimBusinessUnits" EntityType="Self.DimBusinessUnit" />
+    <EntitySet Name="DimCostCenters" EntityType="Self.DimCostCenter" />
+    <EntitySet Name="DimCountries" EntityType="Self.DimCountry" />
+    <EntitySet Name="DimFacilities" EntityType="Self.DimFacility" />
+    <EntitySet Name="DimFFInstances" EntityType="Self.DimFFInstance" />
+    <EntitySet Name="DimFinancialCompanies" EntityType="Self.DimFinancialCompany" />
+    <EntitySet Name="DimModules" EntityType="Self.DimModule" />
+    <EntitySet Name="DimPhysicalStations" EntityType="Self.DimPhysicalStation" />
+    <EntitySet Name="DimRegions" EntityType="Self.DimRegion" />
+    <EntitySet Name="DimStationTypes" EntityType="Self.DimStationType" />
+    <AssociationSet Name="FK_DimBuilding_DimFacility" Association="Self.FK_DimBuilding_DimFacility">
+      <End Role="DimFacility" EntitySet="DimFacilities" />
+      <End Role="DimBuilding" EntitySet="DimBuildings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DimModule_DimBuilding" Association="Self.FK_DimModule_DimBuilding">
+      <End Role="DimBuilding" EntitySet="DimBuildings" />
+      <End Role="DimModule" EntitySet="DimModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CostCenter" Association="Self.FK_CostCenter">
+      <End Role="DimCostCenter" EntitySet="DimCostCenters" />
+      <End Role="DimBusinessUnit" EntitySet="DimBusinessUnits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Country" Association="Self.FK_Country">
+      <End Role="DimCountry" EntitySet="DimCountries" />
+      <End Role="DimFacility" EntitySet="DimFacilities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Region" Association="Self.FK_Region">
+      <End Role="DimRegion" EntitySet="DimRegions" />
+      <End Role="DimCountry" EntitySet="DimCountries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Module" Association="Self.FK_Module">
+      <End Role="DimModule" EntitySet="DimModules" />
+      <End Role="DimFFInstance" EntitySet="DimFFInstances" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

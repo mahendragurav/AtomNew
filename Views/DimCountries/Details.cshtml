@@ -1,0 +1,39 @@
+﻿@model ATOMv0.Models.DimCountry
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="form-crud">
+    <h4>DimCountry</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CountryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DimRegion.RegionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DimRegion.RegionName)
+        </dd>
+
+    </dl>
+
+    <div class="form-actions no-color">
+        <input type="button" class="btn btn-info " value="Edit" onclick="location.href='@Url.Action("Edit", new { id = Model.id })'" />
+    </div>
+    <br />
+
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+</div>
