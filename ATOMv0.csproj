@@ -236,8 +236,6 @@
     <Compile Include="Models\FFSiteController.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="Models\Metric.cs" />
-    <Compile Include="Models\MetricsController.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
